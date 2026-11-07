@@ -462,7 +462,6 @@ body.dark-mode #resumeBox {
   border-color: #4f46e5 !important;
 }
 
-
 /* 🎨 PREMIUM QBANK HIGHLIGHTS (UNIFIED SYMMETRICAL DESIGN) ══ */
 .qbank-opt {
   background: #fafafa !important; /* Standard clean background */
@@ -586,7 +585,6 @@ body.dark-mode .qbank-card:hover {
   background: var(--primary-light);
 }
 
-
 /* 🎛️ TOGGLE SWITCH STYLES ══ */
 .switch {
   position: relative;
@@ -624,7 +622,6 @@ body.dark-mode .qbank-card:hover {
 .switch input:checked + .slider:before {
   transform: translateX(22px);
 }
-
 
 /* ══════════════════════════════════════════
    📝 ESSAY QUESTION BANK (بنك الأسئلة المقالية)
@@ -743,7 +740,6 @@ body.dark-mode .essay-answer-head { color: #34d399; }
   .essay-actions, .essay-toolbar, .essay-progress-wrap, .header button, .back-btn2 { display: none !important; }
 }
 
-
 /* ══════════════════════════════════════════
    🧠 RETENTION GAMES (رتّب الخطوات / وصّل المصطلح)
 ══════════════════════════════════════════ */
@@ -857,7 +853,6 @@ body.dark-mode .essay-answer-head { color: #34d399; }
 .rt-stat .l { font-size: clamp(0.6rem,1.9vw,0.68rem); font-weight: 700; color: var(--muted); margin-top: 2px; }
 body.dark-mode .rt-step { background: rgba(255,255,255,0.03); }
 body.dark-mode .rt-term { background: rgba(129,140,248,0.12); }
-
 
 /* ══════════════════════════════════════════════════════════
    🌙 DARK MODE v2 — لوحة ألوان مريحة للعين (Soothing palette)
@@ -1073,7 +1068,6 @@ body.dark-mode mark { background: #a16207 !important; color: #fff8e1 !important;
 body.dark-mode ::-webkit-scrollbar-track { background: var(--bg); }
 body.dark-mode ::-webkit-scrollbar-thumb { background: #33445c; border-radius: 20px; }
 
-
 /* ── تظبيطات أخيرة ── */
 .set-banner { flex-wrap: wrap; }
 .set-banner > span { flex-basis: 100%; }
@@ -1197,7 +1191,7 @@ body.dark-mode .lec-badges-label { color: var(--muted); }
         <span class="mc-icon" style="color: #6366f1; font-size: 1.5rem;">🚫</span>
         <div style="display: flex; flex-direction: column;">
           <span style="font-weight: 800; color: var(--text); font-size: 0.85rem;">🚫 أسئلة خارج البصمجة (إجابة ليست الأطول)</span>
-          <span class="mc-desc" style="color: var(--muted); margin-top: 1px; text-align: left; font-size: 0.68rem;">تصفية 43 سؤالاً إجابتها الصحيحة ليست الخيار الأطول لمنع التخمين العشوائي!</span>
+          <span class="mc-desc" style="color: var(--muted); margin-top: 1px; text-align: left; font-size: 0.68rem;">تصفية <span id="notLongestCount" style="font-weight:900; color:#6366f1;">...</span> سؤالاً إجابتها الصحيحة ليست الخيار الأطول لمنع التخمين العشوائي!</span>
         </div>
       </div>
 
@@ -1213,7 +1207,6 @@ body.dark-mode .lec-badges-label { color: var(--muted); }
         🧠 اختبار الاسترجاع (رتّب الخطوات + وصّل المصطلح)
       </button>
     </div>
-
 
   </div>
 </div>
@@ -1310,8 +1303,6 @@ body.dark-mode .lec-badges-label { color: var(--muted); }
         <input type="text" id="qbankSearchInput" oninput="searchQBank()" placeholder="🔍 ابحث بالكلمات في الأسئلة والإجابات (مثال: genome, NGS, synteny)..." style="width: 100%; padding: 12px 15px; border-radius: 12px; border: 2px solid var(--border); background: var(--card); color: var(--text); font-weight: bold; font-size: 0.88rem; outline: none; transition: border-color 0.2s;">
       </div>
 
-
-
       <div style="font-size: 0.88rem; font-weight: 800; margin-bottom: 10px; color: var(--text);">اختر الفلتر لعرض الأسئلة وإجاباتها:</div>
       
       <!-- Quick Filters Grid -->
@@ -1344,7 +1335,7 @@ body.dark-mode .lec-badges-label { color: var(--muted); }
 <div id="essayScreen" class="screen">
   <div class="rev-wrap" style="max-width: 760px;">
     <div class="set-banner" style="background: linear-gradient(135deg,#4338ca,#6366f1); margin-bottom: 15px; font-size: 1.02rem; font-weight: 800; justify-content: center; display: flex; align-items: center; gap: 8px; text-align:center;">
-      📝 بنك الأسئلة المقالية — السؤال مع الإجابة النموذجية<span style="display:block; font-size:0.68rem; font-weight:600; opacity:.85; margin-top:3px;">أسئلة محاضرة 2 و3 معلَّمة بـ 🤖 لأنها مُولّدة بالذكاء الاصطناعي</span>
+      📝 بنك الأسئلة المقالية — السؤال مع الإجابة النموذجية<span style="display:block; font-size:0.68rem; font-weight:600; opacity:.85; margin-top:3px;">التقسيم: 7 → L1 · 2 🤖 → L2 · 3 🤖 → L3</span>
     </div>
 
     <!-- Progress -->
@@ -1363,9 +1354,9 @@ body.dark-mode .lec-badges-label { color: var(--muted); }
       <div style="font-size: 0.82rem; font-weight: 800; margin-bottom: 8px; color: var(--muted);">فلترة بالمحاضرة:</div>
       <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 12px;">
         <button class="lec-badge" style="cursor:pointer;" onclick="setEssayFilter('all')" id="ef_all">📁 الكل (18)</button>
-        <button class="lec-badge" style="cursor:pointer;" onclick="setEssayFilter('L1')" id="ef_L1">📘 محاضرة 7 — سلايدات</button>
-        <button class="lec-badge" style="cursor:pointer;" onclick="setEssayFilter('L2')" id="ef_L2">🤖 محاضرة 2</button>
-        <button class="lec-badge" style="cursor:pointer;" onclick="setEssayFilter('L3')" id="ef_L3">🤖 محاضرة 3 — الجينوم المقارن</button>
+        <button class="lec-badge" style="cursor:pointer;" onclick="setEssayFilter('L1')" id="ef_L1">📘 محاضرة 7 · L1</button>
+        <button class="lec-badge" style="cursor:pointer;" onclick="setEssayFilter('L2')" id="ef_L2">🤖 محاضرة 2 · L2</button>
+        <button class="lec-badge" style="cursor:pointer;" onclick="setEssayFilter('L3')" id="ef_L3">🤖 محاضرة 3 · L3</button>
         <button class="lec-badge" style="cursor:pointer; border-color:#f59e0b; color:#f59e0b;" onclick="setEssayFilter('star')" id="ef_star">★ المحفوظة (0)</button>
       </div>
 
@@ -1384,7 +1375,6 @@ body.dark-mode .lec-badges-label { color: var(--muted); }
     <button class="back-btn2" onclick="goHome()" style="background: var(--bg); color: var(--muted); border: 2px solid var(--border) !important; margin-top: 15px; width: 100%;">🏠 العودة للرئيسية</button>
   </div>
 </div>
-
 
 <!-- ══════════════════════════════
      RETENTION GAMES SCREEN (اختبارات الاسترجاع)
@@ -1421,7 +1411,6 @@ body.dark-mode .lec-badges-label { color: var(--muted); }
     <button class="back-btn2" onclick="goHome()" style="background: var(--bg); color: var(--muted); border: 2px solid var(--border) !important; margin-top: 15px; width: 100%;">🏠 العودة للرئيسية</button>
   </div>
 </div>
-
 
 <script>
 // ══════════════════════════════════════════════════════
@@ -1692,7 +1681,6 @@ const QUESTIONS = [
     "ans": 0
   }
 ];
-
 
 // ══════════════════════════════════════════════════════
 //  STATE
@@ -2512,7 +2500,6 @@ function toggleFlagQBank(origIdx, btn) {
   updateQBankFilterCounts();
 }
 
-
 // 🔎 SEARCH & BLIND RECALL HELPER FUNCTIONS
 let blindRecallActive = false;
 
@@ -2541,7 +2528,6 @@ function highlightSearchTerms(text, query) {
   return text.replace(regex, '<mark style="background: #fde047; color: #1e1b4b; padding: 1px 4px; border-radius: 4px; font-weight: 800;">$1</mark>');
 }
 
-
 // ══════════════════════════════════════════════════════
 //  📝 ESSAY QUESTION BANK  (18 essay questions + model answers)
 //  Lecture 7 (slides) → 6 Qs  |  Lecture 2 (AI) → 6 Qs  |  Lecture 3 (AI) → 6 Qs
@@ -2550,7 +2536,7 @@ const ESSAY_QUESTIONS = [
   /* ═════════ LECTURE 1 — سلايدات المحاضرة 7 (Dr. Bossy) ═════════ */
   {
     lec: 'L1', lecName: 'Lecture 7 · سلايدات',
-    q: '1. Define genomics and explain its importance in biological research.',
+    q: 'Define genomics and explain its importance in biological research.',
     a: `• Genomics is the scientific study of the **entire genome** of an organism, including all its genes, DNA sequences, structure, organization and functions.
 • Unlike **genetics**, which traditionally focuses on individual genes and their inheritance, genomics studies the **complete genetic material** of an organism.
 ## Importance of genomics
@@ -2563,7 +2549,7 @@ const ESSAY_QUESTIONS = [
   },
   {
     lec: 'L1', lecName: 'Lecture 7 · سلايدات',
-    q: '2. Differentiate between genetics and genomics.',
+    q: 'Differentiate between genetics and genomics.',
     a: `| Feature | Genetics | Genomics |
 | Focus | Individual genes and their inheritance | The entire genome (all genes + non-coding DNA) |
 | Scope | Studies a single gene in isolation | Collective characterization, mapping, evolution and editing of all genes |
@@ -2574,7 +2560,7 @@ const ESSAY_QUESTIONS = [
   },
   {
     lec: 'L1', lecName: 'Lecture 7 · سلايدات',
-    q: '3. What is a genome? Describe its main components and organization.',
+    q: 'What is a genome? Describe its main components and organization.',
     a: `• A genome is the **complete set of genetic material** present in an organism, including all DNA sequences.
 • The genome contains the information required for the **development, functioning and reproduction** of an organism.
 ## Main components and organization
@@ -2587,7 +2573,7 @@ const ESSAY_QUESTIONS = [
   },
   {
     lec: 'L1', lecName: 'Lecture 7 · سلايدات',
-    q: '4. What is genome sequencing? Explain its importance and major applications.',
+    q: 'What is genome sequencing? Explain its importance and major applications.',
     a: `• Genome sequencing is the process of determining the **precise order of nucleotide bases (A, T, G and C)** in an organism's DNA.
 • It provides information about the **genetic composition** of an organism.
 ## Importance and applications
@@ -2599,7 +2585,7 @@ const ESSAY_QUESTIONS = [
   },
   {
     lec: 'L1', lecName: 'Lecture 7 · سلايدات',
-    q: '5. What is comparative genomics? Explain its importance and applications.',
+    q: 'What is comparative genomics? Explain its importance and applications.',
     a: `• Comparative genomics is the study of **similarities and differences between the genomes of different organisms**.
 • It uses **computational techniques** to compare DNA sequences, genes, genome structures and evolutionary relationships.
 ## Importance
@@ -2617,7 +2603,7 @@ const ESSAY_QUESTIONS = [
   },
   {
     lec: 'L1', lecName: 'Lecture 7 · سلايدات',
-    q: '6. Discuss the major challenges in modern genomics and explain how computational approaches help overcome them.',
+    q: 'Discuss the major challenges in modern genomics and explain how computational approaches help overcome them.',
     a: `## Major challenges
 • **Large data volume:** genome sequencing generates massive datasets that require significant storage and computing resources.
 • **Sequence errors:** sequencing technologies may introduce errors that affect analysis.
@@ -2637,7 +2623,7 @@ const ESSAY_QUESTIONS = [
   /* ═════════ LECTURE 2 — أسئلة مُولّدة بالـ AI ═════════ */
   {
     lec: 'L2', lecName: 'Lecture 2', ai: true,
-    q: '1. Define genome and genomics, and mention the fields in which genomics is mostly used.',
+    q: 'Define genome and genomics, and mention the fields in which genomics is mostly used.',
     a: `## Genome
 • An organism's **complete set of DNA**, including all of its genes and non-coding regions.
 ## Genomics
@@ -2650,7 +2636,7 @@ const ESSAY_QUESTIONS = [
   },
   {
     lec: 'L2', lecName: 'Lecture 2', ai: true,
-    q: '2. Explain structural genomics and functional genomics.',
+    q: 'Explain structural genomics and functional genomics.',
     a: `## Structural genomics
 • Deals with the **physical nature and architecture of genomes**.
 • It involves genome mapping, gene sequencing, and determining the **three-dimensional structures** of every protein encoded by an organism's DNA.
@@ -2660,7 +2646,7 @@ const ESSAY_QUESTIONS = [
   },
   {
     lec: 'L2', lecName: 'Lecture 2', ai: true,
-    q: '3. Define each of the following types of genomics: comparative genomics, metagenomics, epigenomics, and pharmacogenomics.',
+    q: 'Define each of the following types of genomics: comparative genomics, metagenomics, epigenomics, and pharmacogenomics.',
     a: `| Type | Definition |
 | Comparative genomics | Compares the genomic features and DNA sequences of different species. Used to find conserved genes, track evolutionary changes, and understand how organisms are related. |
 | Metagenomics | Investigates the collective genetic material recovered directly from environmental or biological community samples (soil, oceans, human gut), focusing mainly on microorganisms that cannot be easily cultured. |
@@ -2669,7 +2655,7 @@ const ESSAY_QUESTIONS = [
   },
   {
     lec: 'L2', lecName: 'Lecture 2', ai: true,
-    q: '4. What is whole genome sequencing (WGS)? Explain its steps.',
+    q: 'What is whole genome sequencing (WGS)? Explain its steps.',
     a: `## Definition
 • A process that determines an **entire genome's DNA sequence**.
 ## Steps
@@ -2679,7 +2665,7 @@ const ESSAY_QUESTIONS = [
   },
   {
     lec: 'L2', lecName: 'Lecture 2', ai: true,
-    q: '5. Explain shotgun sequencing, then compare it with paired-end sequencing.',
+    q: 'Explain shotgun sequencing, then compare it with paired-end sequencing.',
     a: `## Shotgun sequencing
 • DNA is **sheared or cut into many smaller pieces**.
 • It is called "shotgun" because the approach is like several small pellets fired from a shotgun.
@@ -2693,7 +2679,7 @@ const ESSAY_QUESTIONS = [
   },
   {
     lec: 'L2', lecName: 'Lecture 2', ai: true,
-    q: '6. What is next-generation sequencing (NGS)? Explain how it works and how it differs from Sanger sequencing.',
+    q: 'What is next-generation sequencing (NGS)? Explain how it works and how it differs from Sanger sequencing.',
     a: `## Definition
 • A powerful platform that enables sequencing of **thousands to millions of DNA molecules simultaneously**, allowing sequencing of an entire genome in one day.
 ## How it works
@@ -2711,7 +2697,7 @@ const ESSAY_QUESTIONS = [
   /* ═════════ LECTURE 3 — أسئلة مُولّدة بالـ AI ═════════ */
   {
     lec: 'L3', lecName: 'Lecture 3', ai: true,
-    q: '1. Define comparative genomics and mention the subjects it impinges on.',
+    q: 'Define comparative genomics and mention the subjects it impinges on.',
     a: `## Definition
 • A **large-scale, holistic approach** that compares two or more genomes to discover the similarities and differences between the genomes and to study the biology of the individual genomes.
 ## The subject impinges on
@@ -2723,7 +2709,7 @@ const ESSAY_QUESTIONS = [
   },
   {
     lec: 'L3', lecName: 'Lecture 3', ai: true,
-    q: '2. What is the first step in comparative genomics analysis? Mention some computational tools used for it.',
+    q: 'What is the first step in comparative genomics analysis? Mention some computational tools used for it.',
     a: `## First step
 • The first step is often the **alignment of two genome sequences**.
 • It is a technically challenging problem, so **special computational tools** are used for genome-scale sequence alignment.
@@ -2738,7 +2724,7 @@ const ESSAY_QUESTIONS = [
   },
   {
     lec: 'L3', lecName: 'Lecture 3', ai: true,
-    q: '3. List the methods used for comparative genomics, then explain the comparative analysis of genome structure and the levels at which it is done.',
+    q: 'List the methods used for comparative genomics, then explain the comparative analysis of genome structure and the levels at which it is done.',
     a: `## Methods used for comparative genomics
 • Comparative analysis of **genome structure**.
 • Comparative analysis of **coding regions**.
@@ -2753,7 +2739,7 @@ const ESSAY_QUESTIONS = [
   },
   {
     lec: 'L3', lecName: 'Lecture 3', ai: true,
-    q: '4. Explain the comparison of overall nucleotide statistics.',
+    q: 'Explain the comparison of overall nucleotide statistics.',
     a: `## Features compared
 • Genome size.
 • Overall **(G+C) content**.
@@ -2766,7 +2752,7 @@ const ESSAY_QUESTIONS = [
   },
   {
     lec: 'L3', lecName: 'Lecture 3', ai: true,
-    q: '5. Explain how genome structure is compared at the DNA level and at the gene level.',
+    q: 'Explain how genome structure is compared at the DNA level and at the gene level.',
     a: `## At the DNA level
 • Chromosomal breakage and exchange of chromosomal fragments are a common mode of gene evolution, and they can be studied by comparing genome structures at the DNA level.
 • This includes identification of **conserved synteny** and genome rearrangement events, analysis of **breakpoints**, and analysis of the content and distribution of **DNA repeats**.
@@ -2776,7 +2762,7 @@ const ESSAY_QUESTIONS = [
   },
   {
     lec: 'L3', lecName: 'Lecture 3', ai: true,
-    q: '6. Describe the comparative analysis of coding regions and the role of comparative genomics in drug discovery.',
+    q: 'Describe the comparative analysis of coding regions and the role of comparative genomics in drug discovery.',
     a: `## Comparative analysis of coding regions (workflow)
 • Identification of gene-coding regions.
 • Comparison of gene content.
@@ -3037,8 +3023,6 @@ function resetEssayProgress() {
   renderEssayBank();
 }
 
-
-
 // ══════════════════════════════════════════════════════
 //  🧠 RETENTION GAMES — رتّب الخطوات + وصّل المصطلح
 // ══════════════════════════════════════════════════════
@@ -3158,17 +3142,6 @@ let rtSetIdx = 0;
 let rtPool = [];       // remaining step indices (shuffled)
 let rtAnswer = [];     // chosen order
 let rtChecked = false;
-
-/* ───────── MATCH GAME STATE ───────── */
-let rtMatchFilter = 'all';
-let rtMatchPairs = [];     // 6 selected pairs
-let rtMatchTermOrder = [];
-let rtMatchDefOrder = [];
-let rtMatchSelected = null;   // pair index
-let rtMatchDone = [];         // pair indices matched
-let rtMatchWrong = [];        // temporary wrong highlight
-let rtMatchMistakes = 0;
-let rtMatchStarted = false;
 
 // ══════════════════════════════════════════════════════
 //  NAVIGATION
@@ -3351,40 +3324,101 @@ function renderRtOrderArea() {
     </div>`;
 }
 
+/* ───────── MATCH GAME STATE ───────── */
+let rtMatchFilter = 'all';
+let rtMatchPairs = [];        // مصطلحات الجولة الحالية
+let rtMatchTermOrder = [];
+let rtMatchDefOrder = [];
+let rtMatchSelected = null;
+let rtMatchDone = [];
+let rtMatchWrong = [];
+let rtMatchMistakes = 0;
+let rtMatchStarted = false;
+let rtSolved = [];            // مصطلحات اتحلت قبل كده: "LEC|Term"
+let rtSolvedLoaded = false;
+
 // ══════════════════════════════════════════════════════
-//  GAME 2 — MATCH TERM / DEFINITION
+//  📊 تتبّع تقدّم كل محاضرة (محفوظ في المتصفح)
 // ══════════════════════════════════════════════════════
+function rtKey(p) { return p.lec + '|' + p.term; }
+
+function rtLoadSolved() {
+  if (rtSolvedLoaded) return;
+  try { rtSolved = JSON.parse(localStorage.getItem('gp_rt_solved') || '[]'); }
+  catch (e) { rtSolved = []; }
+  rtSolvedLoaded = true;
+}
+
+function rtSaveSolved() {
+  try { localStorage.setItem('gp_rt_solved', JSON.stringify(rtSolved)); } catch (e) {}
+}
+
+function rtLecPairs(lec) { return MATCH_PAIRS.filter(p => p.lec === lec); }
+function rtLecTotal(lec) { return rtLecPairs(lec).length; }
+function rtLecDone(lec)  { return rtLecPairs(lec).filter(p => rtSolved.includes(rtKey(p))).length; }
+function rtAllDone()     { return MATCH_PAIRS.filter(p => rtSolved.includes(rtKey(p))).length; }
+function rtLecLabel(lec) { const l = RT_LECS.find(x => x.id === lec); return l ? l.label : lec; }
+
 function renderRtMatchChips() {
+  rtLoadSolved();
   const wrap = document.getElementById('rtMatchChips');
   if (!wrap) return;
-  const filters = [
-    { id: 'all', label: '📁 الكل' },
-    { id: 'L1',  label: '🧬 محاضرة 1' },
-    { id: 'L2',  label: '🧪 محاضرة 2' },
-    { id: 'L3',  label: '🧫 محاضرة 3' }
-  ];
   wrap.innerHTML = '';
-  filters.forEach(f => {
+
+  const mkBtn = (id, label, active) => {
     const b = document.createElement('button');
-    b.className = 'rt-chip' + (rtMatchFilter === f.id ? ' active' : '');
-    b.textContent = f.label;
-    b.onclick = () => { rtMatchFilter = f.id; renderRtMatchChips(); startRtMatchRound(); };
+    b.className = 'rt-chip' + (active ? ' active' : '');
+    b.textContent = label;
+    b.onclick = () => {
+      if (rtMatchFilter === id) return;     // نفس المحاضرة → مفيش خلط جديد
+      rtMatchFilter = id;
+      startRtMatchRound();
+    };
     wrap.appendChild(b);
+  };
+
+  const dAll = rtAllDone(), tAll = MATCH_PAIRS.length;
+  mkBtn('all', (dAll >= tAll ? '📁 الكل ✅' : `📁 الكل (${dAll}/${tAll})`), rtMatchFilter === 'all');
+
+  RT_LECS.forEach(l => {
+    const tot = rtLecTotal(l.id), done = rtLecDone(l.id);
+    const lbl = (tot > 0 && done >= tot) ? `${l.label} ✅` : `${l.label} (${done}/${tot})`;
+    mkBtn(l.id, lbl, rtMatchFilter === l.id);
   });
 }
 
-function startRtMatchRound() {
-  const pool = MATCH_PAIRS.filter(p => rtMatchFilter === 'all' || p.lec === rtMatchFilter);
-  const picked = rtShuffle(pool.slice()).slice(0, Math.min(6, pool.length));
+function startRtMatchRound(force) {
+  rtLoadSolved();
 
-  rtMatchPairs = picked;
-  rtMatchTermOrder = rtShuffle(rtRange(picked.length));
-  rtMatchDefOrder  = rtShuffle(rtRange(picked.length));
+  // مراجعة محاضرة من الأول: نصفّر اللي اتحل فيها
+  if (force && rtMatchFilter !== 'all') {
+    rtLecPairs(rtMatchFilter).forEach(p => {
+      const i = rtSolved.indexOf(rtKey(p));
+      if (i > -1) rtSolved.splice(i, 1);
+    });
+    rtSaveSolved();
+  }
+
+  let pool;
+  if (rtMatchFilter === 'all') {
+    const uns = MATCH_PAIRS.filter(p => !rtSolved.includes(rtKey(p)));
+    const src = uns.length >= 8 ? uns : MATCH_PAIRS;
+    pool = rtShuffle(src.slice()).slice(0, Math.min(8, src.length));
+  } else {
+    // كل مصطلحات المحاضرة اللي لسه ما اتحلتش — مش عيّنة عشوائية
+    pool = rtLecPairs(rtMatchFilter).filter(p => !rtSolved.includes(rtKey(p)));
+  }
+
+  rtMatchPairs = pool.slice();
+  rtMatchTermOrder = rtShuffle(rtRange(rtMatchPairs.length));
+  rtMatchDefOrder  = rtShuffle(rtRange(rtMatchPairs.length));
   rtMatchSelected = null;
   rtMatchDone = [];
   rtMatchWrong = [];
   rtMatchMistakes = 0;
   rtMatchStarted = true;
+
+  renderRtMatchChips();
   renderRtMatchArea();
 }
 
@@ -3401,13 +3435,16 @@ function rtPickDef(i) {
     return;
   }
   if (rtMatchSelected === i) {
-    // correct pair
+    // صح ✓
     rtMatchDone.push(i);
+    const k = rtKey(rtMatchPairs[i]);
+    if (!rtSolved.includes(k)) { rtSolved.push(k); rtSaveSolved(); }
     rtMatchSelected = null;
     rtMatchWrong = [];
+    renderRtMatchChips();
     renderRtMatchArea();
   } else {
-    // wrong pair
+    // غلط ✗
     rtMatchMistakes++;
     rtMatchWrong = [rtMatchSelected, i];
     renderRtMatchArea();
@@ -3418,8 +3455,37 @@ function rtPickDef(i) {
 function renderRtMatchArea() {
   const box = document.getElementById('rtMatchArea');
   if (!box) return;
+  rtLoadSolved();
+
   const total = rtMatchPairs.length;
   const matched = rtMatchDone.length;
+  const isLec = rtMatchFilter !== 'all';
+  const lecName = rtLecLabel(rtMatchFilter);
+
+  // ── شريط تقدّم المحاضرة ──
+  const doneCount = isLec ? rtLecDone(rtMatchFilter) : rtAllDone();
+  const totalCount = isLec ? rtLecTotal(rtMatchFilter) : MATCH_PAIRS.length;
+  const pct = totalCount ? Math.round((doneCount / totalCount) * 100) : 0;
+  const progHtml = `
+    <div class="essay-progress-wrap">
+      <div class="essay-progress-top">
+        <span>${isLec ? lecName + ': ' : 'كل المحاضرات: '}خلصت <strong style="color:#10b981;">${doneCount}</strong> من ${totalCount} مصطلح</span>
+        <span style="color:#10b981; font-weight:900;">${pct}%</span>
+      </div>
+      <div class="essay-progress-bar"><div class="essay-progress-fill" style="width:${pct}%"></div></div>
+    </div>`;
+
+  // ── المحاضرة خلصت كلها ──
+  if (total === 0) {
+    box.innerHTML = progHtml + `
+      <div class="rt-card" style="text-align:center;">
+        <div style="font-size:2.6rem; margin-bottom:6px;">🎉</div>
+        <div style="font-weight:800; font-size:1rem; color:var(--text); margin-bottom:8px;">خلّصت كل مصطلحات ${lecName}!</div>
+        <p style="font-size:.8rem; color:var(--muted); line-height:1.7; margin-bottom:14px;">${totalCount} مصطلح — تحب تراجعها من الأول؟</p>
+        <button class="rt-btn green" onclick="startRtMatchRound(true)">🔁 راجع المحاضرة من الأول</button>
+      </div>`;
+    return;
+  }
 
   let termsHtml = '';
   rtMatchTermOrder.forEach(i => {
@@ -3436,8 +3502,7 @@ function renderRtMatchArea() {
   let defsHtml = '';
   rtMatchDefOrder.forEach(i => {
     if (rtMatchDone.includes(i)) return;
-    const cls = 'rt-def' + (rtMatchWrong.includes(i) ? ' wrong' : '')
-      + (rtMatchSelected !== null ? '' : '');
+    const cls = 'rt-def' + (rtMatchWrong.includes(i) ? ' wrong' : '');
     defsHtml += `<div class="${cls}" onclick="rtPickDef(${i})">${escapeEssayText(rtMatchPairs[i].def)}</div>`;
   });
 
@@ -3458,21 +3523,34 @@ function renderRtMatchArea() {
   let finished = '';
   if (matched === total) {
     const stars = rtMatchMistakes === 0 ? '⭐⭐⭐' : (rtMatchMistakes <= 2 ? '⭐⭐' : '⭐');
+    const lecComplete = isLec && rtLecDone(rtMatchFilter) >= rtLecTotal(rtMatchFilter);
+    const headline = lecComplete
+      ? `🎉 خلّصت <strong>كل مصطلحات ${lecName}</strong> (${totalCount}/${totalCount})!`
+      : (isLec ? '🎉 خلّصت الجولة — ولسه فيه مصطلحات تانية في المحاضرة' : '🎉 خلّصت الجولة!');
+    const action = isLec
+      ? (lecComplete
+          ? `<button class="rt-btn green" onclick="startRtMatchRound(true)">🔁 راجع المحاضرة من الأول</button>`
+          : `<button class="rt-btn green" onclick="startRtMatchRound()">➡️ كمّل باقي المحاضرة</button>`)
+      : `<button class="rt-btn green" onclick="startRtMatchRound()">🔄 جولة جديدة</button>`;
     finished = `
       <div class="rt-feedback good" style="margin-bottom:14px;">
-        🎉 خلّصت الجولة! ${stars}<br>
+        ${headline} ${stars}<br>
         الأخطاء: ${rtMatchMistakes} — ${rtMatchMistakes === 0 ? 'ممتاز، مفيش ولا غلطة!' : 'كمّل تدريب وهتوصل للصفر 💪'}
       </div>
-      <div class="rt-actions" style="margin-top:0;">
-        <button class="rt-btn green" onclick="startRtMatchRound()">🔁 جولة جديدة</button>
-      </div>`;
+      <div class="rt-actions" style="margin-top:0;">${action}</div>`;
   }
 
+  const bottomAction = isLec
+    ? `<button class="rt-btn ghost" onclick="startRtMatchRound(true)">🔁 إعادة المحاضرة من الأول</button>`
+    : `<button class="rt-btn ghost" onclick="startRtMatchRound()">🔄 جولة جديدة</button>`;
+
   box.innerHTML = `
+    ${progHtml}
+
     <div class="rt-stats">
-      <div class="rt-stat"><div class="n">${matched}/${total}</div><div class="l">اتوصلوا</div></div>
+      <div class="rt-stat"><div class="n">${matched}/${total}</div><div class="l">اتوصلوا (الجولة)</div></div>
       <div class="rt-stat"><div class="n" style="color:#ef4444;">${rtMatchMistakes}</div><div class="l">أخطاء</div></div>
-      <div class="rt-stat"><div class="n">${total - matched}</div><div class="l">باقي</div></div>
+      <div class="rt-stat"><div class="n">${total - matched}</div><div class="l">باقي في الجولة</div></div>
     </div>
 
     <div class="rt-card">
@@ -3491,18 +3569,41 @@ function renderRtMatchArea() {
       ${matchedHtml}
 
       <div class="rt-actions">
-        <button class="rt-btn ghost" onclick="startRtMatchRound()">🔄 جولة جديدة</button>
+        ${bottomAction}
       </div>
     </div>`;
 }
 
-// Run Local Storage Init on load
+const RT_LECS = [
+  { id: 'L1', label: '🧬 محاضرة 1' },
+  { id: 'L2', label: '🧪 محاضرة 2' },
+  { id: 'L3', label: '🧫 محاضرة 3' }
+];
+// عدد أسئلة "إجابة ليست الأطول" — يتحسب من البنك نفسه
+function updateNotLongestCount() {
+  const el = document.getElementById('notLongestCount');
+  if (!el) return;
+  const n = QUESTIONS.filter(q => {
+    const lens = q.opts.map(o => o.length);
+    return q.opts[q.ans].length < Math.max(...lens);
+  }).length;
+  el.textContent = n;
+}
+
 window.addEventListener('DOMContentLoaded', () => {
   initLocalStorage();
   initEssayLocalStorage();
+  updateNotLongestCount();
 });
 </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a08a553c0b10a65d',t:'MTc4MDk0NzI1NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f","spa":2}' crossorigin="anonymous"></script>
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f","spa":2}' crossorigin="anonymous"></script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a55c3c2bf9d5185c',t:'MTc5Mzg4NTY1Ng=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a55c3c2bf9d5185c',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<!-- ==========================================================
+     📊 عدّاد الزوّار (GoatCounter) — اختياري
+     1) اعمل حساب مجاني من https://www.goatcounter.com
+     2) بدّل YOURCODE بكود حسابك
+     3) امسح السطر الأول (فتح التعليق) والسطر الأخير (قفل التعليق) لتفعيله
+     ملاحظة: وهو معلّق كده مش بيأثر على شكل أو سرعة الصفحة.
+<script data-goatcounter="https://YOURCODE.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+-->
+</body>
 </html>
