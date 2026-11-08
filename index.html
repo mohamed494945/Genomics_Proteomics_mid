@@ -132,6 +132,21 @@ body {
 }
 .lec-badges-label { font-size:clamp(0.66rem,2vw,0.74rem); color:var(--muted); text-align:center; margin-bottom:4px; font-weight:600; }
 
+
+/* ══ ملحوظة على سؤال معيّن ══ */
+.q-note {
+  display: block;
+  background: rgba(245,158,11,.12);
+  border: 1.5px solid rgba(245,158,11,.45);
+  border-right: 5px solid #f59e0b;
+  border-radius: 12px; padding: 10px 12px; margin: 0 0 10px;
+  font-size: clamp(.72rem,2.4vw,.82rem); font-weight: 700; line-height: 1.7;
+  color: var(--text); text-align: right; direction: rtl;
+}
+.q-note bdi { font-weight: 800; color: #b45309; unicode-bidi: isolate; }
+body.dark-mode .q-note { background: rgba(245,158,11,.10); }
+body.dark-mode .q-note bdi { color: #fbbf24; }
+
 /* ══════════════════════
    QUIZ SCREEN
 ══════════════════════ */
@@ -1532,7 +1547,8 @@ const QUESTIONS = [
     "lec": "Lecture 2",
     "q": "Structural genomics mainly focuses on:",
     "opts": ["Studying gene expression", "Comparing different species", "Determining the structure and organization of genomes", "Studying protein interactions only"],
-    "ans": 2
+    "ans": 2,
+    "note": "⚠️ <bdi>ملحوظة:</bdi> لو السؤال ده جالك في الميد اختار <bdi>D. Studying protein interactions only</bdi> زي ما هو محلول في بنك السيستم — (الإجابة العلمية الصح هي C بس السيستم بيحسب D)."
   },
   {
     "lec": "Lecture 2",
@@ -1921,7 +1937,8 @@ function startQuiz() {
       lec:  q.lec,
       q:    q.q,
       opts: [...q.opts],
-      ans:  q.ans
+      ans:  q.ans,
+      note: q.note
     };
   });
 
@@ -1981,7 +1998,8 @@ function startSpecialMode(type) {
       lec:  q.lec,
       q:    q.q,
       opts: [...q.opts],
-      ans:  q.ans
+      ans:  q.ans,
+      note: q.note
     };
   });
 
@@ -2055,6 +2073,7 @@ function renderQuizSheet() {
           <span>${isFlagged ? '★' : '☆'}</span> <span>${isFlagged ? 'محدد' : 'تحديد'}</span>
         </button>
       </div>
+      ${q.note ? `<div class="q-note">${q.note}</div>` : ''}
       <div class="q-text" style="font-size: clamp(0.9rem, 3vw, 1rem); font-weight: 700; line-height: 1.6; margin-bottom: 15px; color: var(--text); text-align: left;">
         ${q.q}
       </div>
@@ -2258,7 +2277,8 @@ function retryWrongOnly() {
     lec: q.lec,
     q: q.q,
     opts: [...q.opts],
-    ans: q.ans
+    ans: q.ans,
+    note: q.note
   }));
 
   currentIdx = 0; score = 0; wrongCount = 0; skipped = 0;
@@ -2294,6 +2314,7 @@ function goReview() {
     const item = document.createElement('div');
     item.className = `rev-item ${cls}`;
     item.innerHTML = `
+      ${q.note ? `<div class="q-note" style="margin-bottom:8px">${q.note}</div>` : ''}
       <div class="rev-q">Q${qi+1}. ${q.q}${sk}</div>
       <span class="rev-lec">${q.lec}</span>
       <div class="rev-opts">${optsHtml}</div>
@@ -2411,7 +2432,8 @@ function renderQBank() {
         lec: q.lec,
         q: q.q,
         opts: q.opts,
-        ans: q.ans
+        ans: q.ans,
+        note: q.note
       });
     }
   });
@@ -2472,6 +2494,7 @@ function renderQBank() {
           ${isFlagged ? '★' : '☆'}
         </button>
       </div>
+      ${q.note ? `<div class="q-note">${q.note}</div>` : ''}
       <div class="qbank-question-text">
         ${highlightSearchTerms(q.q, searchQuery)}
       </div>
